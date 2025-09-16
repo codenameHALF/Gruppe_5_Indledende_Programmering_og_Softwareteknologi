@@ -1,38 +1,24 @@
 public class FizzBuzz {
-    public static final int TAL = 30;
+    // This constant determines how many times the main loop runs
+    public static final int N = 30;
+
+    // This function prints numbers from 1 to 30
+    // If a number is fully divisible by 3, 5 or 15
+    // the program will instead print fizz, buzz or fizzbuzz
     public static void main(String[] args) {
-        for (int i=1; i<=TAL; i++){
-            //isFizzbuzz(i) ? fizzbuzz() : (isBuzz(i) ? buzz() : (isFizz(i) ? fizz() : print(String.valueOf(i))));
-            System.out.println(isFizzbuzz(i));
+        // This loop runs from 1 to N
+        for (int i=1; i<=N; i++){
+            // The string result is initially set to the value of i
+            String result = String.valueOf(i);
+            // If i is fully divisible by 3, 5 or 15 the result is updated
+            // To either fizz, buzz or fizzbuzz
+            result = i % 3 == 0 ? "fizz" : result;
+            result = i % 5 == 0 ? "buzz" : result;
+            result = i % 15 == 0 ? "fizzbuzz" : result;
+            // The result is printed in the terminal for each iteration
+            System.out.println(result);
+
         }
-    }
-
-    public static void print(String output) {
-        System.out.println(output);
-    }
-
-    public static void fizz() {
-        System.out.println("fizz");
-    }
-    
-    public static void buzz() {
-        System.out.println("buzz");
-    }
-
-    public static void fizzbuzz() {
-        System.out.println("fizzbuzz");
-    }
-
-    public static boolean isFizz(int i) {
-        return i % 3 == 0;
-    }
-    
-    public static boolean isBuzz(int i) {
-        return i % 5 == 0;
-    }
-
-    public static boolean isFizzbuzz(int i) {
-        return i % 15 == 0;
     }
 }
             
