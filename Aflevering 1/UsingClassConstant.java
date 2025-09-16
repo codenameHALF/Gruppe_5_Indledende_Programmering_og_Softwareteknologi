@@ -1,4 +1,4 @@
-public class Opgave_3 {
+public class UsingClassConstant {
     public static final int LINES = 2;
     public static void main(String[] args) {
         for (int l=1; l<=3; l++){
