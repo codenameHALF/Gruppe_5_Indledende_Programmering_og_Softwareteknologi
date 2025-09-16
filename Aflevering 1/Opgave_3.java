@@ -1,4 +1,4 @@
-public class UsingClassConstant {
+public class Opgave_3 {
     public static final int LINES = 3;
     public static void main(String[] args) {
         for (int i = 1; i <= LINES ; i++) {
@@ -7,3 +7,5 @@ public class UsingClassConstant {
         }
 }
 System.out.println("+");
+    }
+}
