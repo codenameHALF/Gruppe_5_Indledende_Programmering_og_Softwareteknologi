@@ -1,5 +1,5 @@
 public class Remember {
-    // her kalder vi vores tekst() metode to gange og printer "remember"mellem
+    // her kalder vi vores tekst() metode to gange og printer "remember" mellem.
     public static void main(String[] args) {
         tekst();
         System.out.println("Remember:");
