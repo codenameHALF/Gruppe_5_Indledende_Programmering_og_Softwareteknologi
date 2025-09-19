@@ -1,5 +1,5 @@
 public class FizzBuzz {
-    // This constant determines how many times the main loop runs
+    // This constant determines how many times the loop is run
     public static final int N = 30;
 
     // This function prints numbers from 1 to 30
