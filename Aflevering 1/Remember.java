@@ -1,13 +1,13 @@
 public class Remember {
-    // Her kalder vi vores tekst() metode to gange og printer "remember" mellem.
-    // Dette gør at vi kan genbruge tekst funktionen hvilket skalerer bedre
+    // Here we call our text() method twice and print "remember" in between
+    // This makes us able to reuse the text method which scales better
     public static void main(String[] args) {
-        tekst();
+        text();
         System.out.println("Remember:");
-        tekst();
+        text();
     }
-    // En metode der printer den ønskede tekst.
-    public static void tekst(){
+    // A method that prints the wanted text
+    public static void text(){
         System.out.println("Use \"\\\\\" to obtain a \'backslash\' character.");
     }
 }
