@@ -12,7 +12,6 @@ public class Opgave1 {
     if (num < 1 | num > 3999){
         return "Invalid";
     }
-    
 
     int n1, n10, n100, n1000;
     n1 = num%10/1;
