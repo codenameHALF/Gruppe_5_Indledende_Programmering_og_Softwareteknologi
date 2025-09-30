@@ -13,18 +13,20 @@ public class Opgave4 {
 
         int y = 0;
 
-        for (int i = 0; i <= n; i++){
+        int steps = 0;
 
-            while (x <= n || y <= n){
+        for (int i = 0; i <= n; i++){
+            steps += i;
+            while (x < n || y < n){
                 x += 1;
                 y += 1;
 
                 System.out.println("Position = ("+ x + "," + y +")" );
             }
 
-            System.out.println("Number of steps: " + i);
-        }
 
+        }
+        System.out.println("Number of steps: " + steps);
 
     }
 }
