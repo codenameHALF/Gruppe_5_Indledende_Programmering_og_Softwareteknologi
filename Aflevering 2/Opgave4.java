@@ -43,7 +43,6 @@ public class Opgave4 {
 
             //System.out.println("Position = ("+ x + "," + y +")" );
         }
-        
         System.out.println("Number of steps: " + steps);
     }
 
@@ -54,7 +53,6 @@ public class Opgave4 {
             System.out.println("Not an integer; try again.");
             System.out.print(prompt);
         }
-
         return input.nextInt();
     }
     
