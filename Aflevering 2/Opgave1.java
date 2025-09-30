@@ -40,3 +40,11 @@ public class Opgave1 {
     return Result;
     }
 }
+
+
+String result = "";
+
+result += "M";
+result = result + "M";
+
+
