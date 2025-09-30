@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Opgave3 {
+public class TOpgave3 {
     public static void main(String[] args) {
         System.out.print("Enter number of iterations: ");
         

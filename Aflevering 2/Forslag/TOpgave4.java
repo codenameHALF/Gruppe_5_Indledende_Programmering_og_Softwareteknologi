@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Opgave4 {
+public class TOpgave4 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         Random r = new Random();

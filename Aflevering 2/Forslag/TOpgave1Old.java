@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Opgave1Old {
+public class TOpgave1Old {
 
     public static final String[] chars = {"I", "V", "X", "L", "C", "D", "M", "_", "_"};
 

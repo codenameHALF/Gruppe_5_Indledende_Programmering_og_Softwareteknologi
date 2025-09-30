@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Opgave1 {
+public class TOpgave1 {
 
     public static void main(String[] args) {
         System.out.print("Enter positive integer to convert: ");

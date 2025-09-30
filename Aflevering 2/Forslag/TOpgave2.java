@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Opgave2 {
+public class TOpgave2 {
 
     public static void main(String[] args) {
         System.out.print("Enter line to check: ");
