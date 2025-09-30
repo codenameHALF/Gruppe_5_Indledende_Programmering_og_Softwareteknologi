@@ -4,8 +4,8 @@ public class Opgave2 {
     public static void main(String[] args) {
         System.out.print("Enter line to check:");
         Scanner input = new Scanner(System.in);
-
         String text = input.nextLine();
+        input.close();
 
         if (palindromeCheck(text)){
             System.out.println("\"" + text +"\" is a palindrome!");

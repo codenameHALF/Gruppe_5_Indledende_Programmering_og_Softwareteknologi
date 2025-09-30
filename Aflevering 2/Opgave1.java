@@ -42,9 +42,3 @@ public class Opgave1 {
 }
 
 
-String result = "";
-
-result += "M";
-result = result + "M";
-
-
