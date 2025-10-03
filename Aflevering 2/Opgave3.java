@@ -7,6 +7,7 @@ public class Opgave3 {
         Scanner scanner = new Scanner(System.in);
         int successes = 0;
         int iterations = scanner.nextInt();
+        scanner.close();
     
         for (int i = 0; i<iterations; i++){
             double bot = rand.nextDouble()*2;
