@@ -26,6 +26,5 @@ public class Opgave3 {
         }
         double pi = (double)iterations/successes;
         System.out.println(iterations + "/" + successes + "=" + pi);
-
     }
 }
