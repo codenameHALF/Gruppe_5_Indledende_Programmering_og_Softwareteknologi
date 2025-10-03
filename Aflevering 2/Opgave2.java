@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Opgave2 {
     public static void main(String[] args) {
-        System.out.print("Enter line to check: ");
         Scanner input = new Scanner(System.in);
+        System.out.print("Enter line to check: ");
         String text = input.nextLine();
         input.close();
 
