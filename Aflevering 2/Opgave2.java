@@ -12,8 +12,6 @@ public class Opgave2 {
         } else {
             System.out.println("Is not a palindrome");
         }
-        
-
     }
     public static boolean palindromeCheck(String text){
 
