@@ -1,12 +1,13 @@
 import java.util.*;
-
+// This program takes a line of user input from the command line in the form of an integer "n"
+// The program will then perfom a random walk on an n*n grid until it walks off its borders
 public class Opgave4 {
-    public static void main(String[] args) {
+    static final Scanner input = new Scanner(System.in);
+    static final Random rand = new Random();
 
-        Scanner input = new Scanner(System.in);
-        Random rand = new Random();
-        String prompt = "Enter grid size: ";
-        int n = getInt(input, prompt);
+    public static void main(String[] args) {
+        // Get user input
+        int n = getInt(input);
 
         if (n < 0) {
             throw new IllegalArgumentException("Negative integer, Can't compute");
@@ -15,19 +16,17 @@ public class Opgave4 {
         int x = 0;
         int y = 0;
         int steps = 0;
-
+        
+        // Setup StdDraw
         StdDraw.setXscale(-n - 0.5, n + 0.5);
         StdDraw.setYscale(-n - 0.5, n + 0.5);
         StdDraw.setPenRadius(1.0 / (n * 2 + 1));
 
-        // System.out.println("Position = ("+ x + "," + y +")" );
-
+        // Do random walk
         while (Math.abs(x) <= n && Math.abs(y) <= n) {
-
             StdDraw.point(x, y);
 
             int move = rand.nextInt(4);
-
             if (move == 0) {
                 x++;
             } else if (move == 1) {
@@ -38,19 +37,19 @@ public class Opgave4 {
                 y--;
             }
 
+            System.out.println("Position = ("+ x + "," + y +")" );
             steps++;
-
-            // System.out.println("Position = ("+ x + "," + y +")" );
         }
         System.out.println("Number of steps: " + steps);
     }
 
-    public static int getInt(Scanner input, String prompt) {
-        System.out.print(prompt);
+    // This method asks the user for input and returns it
+    public static int getInt(Scanner input) {
+        System.out.print("Enter grid size: ");
         while (!input.hasNextInt()) {
             input.next();
             System.out.println("Not an integer; try again.");
-            System.out.print(prompt);
+            System.out.print("Enter grid size: ");
         }
         return input.nextInt();
     }
