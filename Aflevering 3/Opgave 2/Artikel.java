@@ -1,11 +1,16 @@
 public class Artikel extends Tidsskrift {
     private String forfattere;
     private String[] referencelist;
-public artikel(String forfattere, String titel,String tidsskrift){
+    private Tidsskrift tidsskrift;
 
-}
-public void setReferenceliste(){
-    
-}
+    public Artikel(String forfattere, String titel, Tidsskrift tidsskrift) {
+        super(titel);
+        this.forfattere = forfattere;
+        this.tidsskrift = tidsskrift;
+    }
+
+    public void setReferenceliste() {
+
+    }
 
 }
