@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class PrimeFactors {
     public static void main(String[] args) {
@@ -17,29 +17,27 @@ public class PrimeFactors {
     }
 
     public static String getFactor(long n) {
-        int y = 2;
-        int[] P = new int[(int) Math.sqrt(n)];
 
-        for (int x = 0; x < P.length; x++) {
-            P[x] = y;
-            y++;
-        }
 
-        String f = "";
-        for (long i : P) {
+        List<Long> f = new LinkedList<>();
+
+        for (long i = 2; i * i <= n;i++) {
             while (n % i == 0) {
-                f += i;
-
+                f.add(i);
                 n /= i;
-                if (n % i == 0) {
-                    f += ", ";
-                }
             }
         }
-        if (f == "") {
-            f = String.valueOf(n);
+
+        if (f.isEmpty()){
+            f.add(n);
         }
-        return f;
+        
+        String factors = f.get(0).toString();
+        for (int k = 1; k <= f.size()-1; k++){
+            factors += ", " + f.get(k).toString();
+        }
+
+        return factors;
     }
 
     public static long getLong(Scanner input) {
