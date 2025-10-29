@@ -4,7 +4,7 @@ public class PrimeFactors {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         while (true) {
-            int n = getInt(input);
+            long n = getLong(input);
             if (n == 0) {
                 break;
             }
@@ -16,7 +16,7 @@ public class PrimeFactors {
         System.out.println("Terminating...");
     }
 
-    public static String getFactor(int n) {
+    public static String getFactor(long n) {
         int y = 2;
         int[] P = new int[(int) Math.sqrt(n)];
 
@@ -26,10 +26,14 @@ public class PrimeFactors {
         }
 
         String f = "";
-        for (int i : P) {
+        for (long i : P) {
             while (n % i == 0) {
-                f += i + ", ";
+                f += i;
+
                 n /= i;
+                if (n % i == 0) {
+                    f += ", ";
+                }
             }
         }
         if (f == "") {
@@ -38,13 +42,13 @@ public class PrimeFactors {
         return f;
     }
 
-    public static int getInt(Scanner input) {
+    public static long getLong(Scanner input) {
         System.out.print("Enter integer greater than 1 (0 to terminate): ");
-        while (!input.hasNextInt()) {
+        while (!input.hasNextLong()) {
             input.next();
             System.out.println("Not an integer; try again.");
             System.out.print("Enter integer greater than 1 (0 to terminate): ");
         }
-        return input.nextInt();
+        return input.nextLong();
     }
 }
