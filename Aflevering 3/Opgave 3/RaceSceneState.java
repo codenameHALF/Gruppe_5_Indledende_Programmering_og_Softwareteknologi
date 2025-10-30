@@ -35,6 +35,6 @@ public class RaceSceneState {
 
 
     public boolean isGameover() {
-        return true;
+        return false;
     }
 }

@@ -40,16 +40,16 @@ public class Game {
 
     public void startScene() {
         int waitFor = 0;
+        window.updateStartScene(startSceneState); 
         while(true) {
-            if (StdDraw.isKeyPressed(KeyEvent.VK_UP))    {startSceneState.up();    waitFor = KeyEvent.VK_UP;}
-            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN))  {startSceneState.down();  waitFor = KeyEvent.VK_DOWN;}
-            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT))  {startSceneState.left();  waitFor = KeyEvent.VK_LEFT;}
-            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {startSceneState.right(); waitFor = KeyEvent.VK_RIGHT;}
+            if (StdDraw.isKeyPressed(KeyEvent.VK_UP))    {startSceneState.up();    window.updateStartScene(startSceneState); waitFor = KeyEvent.VK_UP;}
+            if (StdDraw.isKeyPressed(KeyEvent.VK_DOWN))  {startSceneState.down();  window.updateStartScene(startSceneState); waitFor = KeyEvent.VK_DOWN;}
+            if (StdDraw.isKeyPressed(KeyEvent.VK_LEFT))  {startSceneState.left();  window.updateStartScene(startSceneState); waitFor = KeyEvent.VK_LEFT;}
+            if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {startSceneState.right(); window.updateStartScene(startSceneState); waitFor = KeyEvent.VK_RIGHT;}
             if (StdDraw.isKeyPressed(KeyEvent.VK_ENTER)) {
                 while(StdDraw.isKeyPressed(KeyEvent.VK_ENTER)){} 
                 while(StdDraw.hasNextKeyTyped()) {StdDraw.nextKeyTyped();}
                 return;}
-            window.updateStartScene(startSceneState);
             while(waitFor != 0) {
                 if (!StdDraw.isKeyPressed(waitFor)) {
                     waitFor = 0;
@@ -61,9 +61,8 @@ public class Game {
 
     public void raceScene() {
         int currPlayer = 0;
+        window.updateRaceScene(raceSceneState);
         while (true) {
-            window.updateRaceScene(raceSceneState);
-
             if (StdDraw.hasNextKeyTyped()) {
                 char key = StdDraw.nextKeyTyped();
 
@@ -76,6 +75,7 @@ public class Game {
                 currPlayer += 1;
                 if (currPlayer == raceSceneState.getPlayersNum()) {currPlayer = 0;}
                 if (raceSceneState.isGameover()) {return;}
+                window.updateRaceScene(raceSceneState);
             }
         }
     }
