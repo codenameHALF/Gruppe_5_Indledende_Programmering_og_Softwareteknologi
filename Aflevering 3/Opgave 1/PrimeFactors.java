@@ -17,23 +17,24 @@ public class PrimeFactors {
     }
 
     public static String getFactor(long n) {
-
-
         List<Long> f = new LinkedList<>();
 
-        for (long i = 2; i * i <= n;i++) {
-            while (n % i == 0) {
+        for (long i = 2; i <= Math.sqrt(n);) {
+            if (n % i == 0) {
                 f.add(i);
                 n /= i;
+            } else {
+                i += (i == 2) ? 1 : 2;
             }
         }
 
-        if (f.isEmpty()){
+        if (n > 1) {
             f.add(n);
         }
-        
+
         String factors = f.get(0).toString();
-        for (int k = 1; k <= f.size()-1; k++){
+
+        for (int k = 1; k <= f.size() - 1; k++) {
             factors += ", " + f.get(k).toString();
         }
 
@@ -44,7 +45,8 @@ public class PrimeFactors {
         System.out.print("Enter integer greater than 1 (0 to terminate): ");
         while (!input.hasNextLong()) {
             input.next();
-            System.out.println("Not an integer; try again.");
+            System.out.println(
+                    "The value you entered is either not an integer or it exceeds the max value of a long; try again.");
             System.out.print("Enter integer greater than 1 (0 to terminate): ");
         }
         return input.nextLong();
