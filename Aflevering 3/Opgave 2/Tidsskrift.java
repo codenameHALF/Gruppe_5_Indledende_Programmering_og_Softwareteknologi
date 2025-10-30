@@ -20,7 +20,11 @@ public class Tidsskrift extends Forlag {
         this.forlag = forlag;
     }
 
+    public String getTitel(){
+        return titel;
+    }
+
     public String toString() {
-        return titel + ", " + issn + ", " + forlag;
+        return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag +". " + issn;
     }
 }
