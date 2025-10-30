@@ -11,12 +11,12 @@ public class GameOfLife {
     }
 
     public int golToN(String golData) {
-        return 10; // Default size 10x10
+        return n;
     }
 
     public int[][] golToState(String golData) {
         state = new int[n][n];
-        // Initialize with random cells
+        // random cells
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
                 state[i][j] = Math.random() < 0.5 ? 0 : 1;
@@ -30,7 +30,7 @@ public class GameOfLife {
     }
 
     public void nextGen() {
-        // Simple implementation that just clears the board
+        // rydder
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
                 state[i][j] = 0;
