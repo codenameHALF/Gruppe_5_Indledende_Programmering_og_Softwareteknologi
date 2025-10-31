@@ -11,7 +11,7 @@ public class Artikel extends Tidsskrift {
     }
 
     public String toString(){
-        return "- " + forfattere + ": " + "\"" + titel + "\"" + tidsskrift.getTitel(); 
+        return "- " + forfattere + ": " + "\"" + titel + "\"." + tidsskrift.getTitel() + "."; 
     }
 
     public void setReferenceliste(Artikel[] referenceListe) {

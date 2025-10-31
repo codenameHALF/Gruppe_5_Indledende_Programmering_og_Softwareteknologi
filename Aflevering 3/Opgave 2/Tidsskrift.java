@@ -28,6 +28,6 @@ public class Tidsskrift {
         if (issn == null){
             return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag.getNavn() + ". ISSN-numrene kendes ikke.";
         }
-        return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag +". " + issn;
+        return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag.getNavn() +". ISSN-nummer: " + issn;
     }
 }
