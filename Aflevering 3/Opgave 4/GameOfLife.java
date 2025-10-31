@@ -1,49 +1,55 @@
-import java.util.*;
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class GameOfLife {
-    int n;
+    int xSize, ySize;
     int[][] state;
 
-    public GameOfLife(String golFile) {
-        try {
-            Scanner scanner = new Scanner(new File(golFile));
-            ArrayList<String> lines = new ArrayList<>();
-            while (scanner.hasNextLine()) {
-                lines.add(scanner.nextLine());
+    public GameOfLife(ArrayList<String> golData) {
+        this.xSize = golData.get(0).length();
+        this.ySize = golData.size();
+        this.state = golToState(golData);
+    }
+
+    public int[][] golToState(ArrayList<String> golData) {
+        int[][] newState = new int[this.xSize][this.ySize];
+        for (int i = 0; i < this.xSize; i++) {
+            for (int j = 0; j < this.ySize; j++) {
+                if (golData.get(i).charAt(j) == '0') {
+                    newState[i][j] = 0;
+                } else if (golData.get(i).charAt(j) == '1') {
+                    newState[i][j] = 1;
+                }
             }
-            this.n = lines.get(0).length();
-            this.state = new int[n][n];
-            
-            // fyld  state array (levende celler)
-            
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            // ingen fil? 
-
         }
+        return newState;
     }
 
-    public int golToN(String golData) {
-        return n;
+    public int[][] getState() {
+        return this.state;
     }
 
-    //public int[][] golToState(String golData) {
-       // state = new int[n][n];
-       // return state;
-    //}
-
-    //public int[][] getState() {
-      //  return this.state;
-    //}
-
-   // public void nextGen() {
+    public void nextGen() {
         // rydder (men vi har ingen main)
-       // for(int i = 0; i < n; i++) {
-         //   for(int j = 0; j < n; j++) {
-           //     state[i][j] = 0;
-    //        }
-    //    }
-    //}
+        int[][] newState = new int[this.xSize][this.ySize];
+        for (int i = 0; i < this.xSize; i++) {
+            for (int j = 0; j < this.ySize; j++) {
+                int cellState = this.state[i][j];
+                int neighbors = 0;
+                if (i > 0      ) {neighbors += state[i-1][j];}
+                if (i < xSize-1) {neighbors += state[i+1][j];}
+                if (j > 0      ) {neighbors += state[i][j-1];}
+                if (j < ySize-1) {neighbors += state[i][j+1];}
+                if (i > 0       && j > 0      ) {neighbors += state[i-1][j-1];}
+                if (i < xSize-1 && j > 0      ) {neighbors += state[i+1][j-1];}
+                if (i > 0       && j < ySize-1) {neighbors += state[i-1][j+1];}
+                if (i < xSize-1 && j < ySize-1) {neighbors += state[i+1][j+1];}
+
+                if (cellState == 1 && neighbors < 2 ) {newState[i][j] = 0;}
+                if (cellState == 1 && neighbors > 3 ) {newState[i][j] = 0;}
+                if (cellState == 1 && neighbors >= 2 && neighbors <= 3 ) {newState[i][j] = this.state[i][j];}
+                if (cellState == 0 && neighbors == 3) {newState[i][j] = 1;}
+            }
+        }
+    this.state = newState;
+    }
 }
