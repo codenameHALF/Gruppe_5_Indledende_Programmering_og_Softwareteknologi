@@ -1,5 +1,5 @@
 
-public class Tidsskrift extends Forlag {
+public class Tidsskrift {
     private String titel;
     private String issn;
     private Forlag forlag;
@@ -25,6 +25,9 @@ public class Tidsskrift extends Forlag {
     }
 
     public String toString() {
+        if (issn == null){
+            return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag + ". ISSN-numrene kendes ikke.";
+        }
         return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag +". " + issn;
     }
 }

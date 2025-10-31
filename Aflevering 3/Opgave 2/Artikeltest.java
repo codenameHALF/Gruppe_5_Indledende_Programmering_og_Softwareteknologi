@@ -3,7 +3,6 @@ public class Artikeltest {
         Forlag test = new Forlag("University Press", "Danmark");
         System.out.println(test.toString());
         Tidsskrift test2 = new Tidsskrift("Journal of logic");
-        test2.setIssn("ISSN-nummeret kendes ikke.");
         test2.setForlag(test);
         System.out.println(test2.toString());
 

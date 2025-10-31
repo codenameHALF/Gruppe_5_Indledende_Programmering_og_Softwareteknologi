@@ -15,7 +15,7 @@ public class Artikel extends Tidsskrift {
     }
 
     public void setReferenceliste() {
-
+  
     }
 
 }
