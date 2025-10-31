@@ -51,7 +51,11 @@ public class StartSceneState {
         return playerNums[selectedPlayerNum];
     }
 
-    public String getSelectedMap() {
+    public int getSelectedMap() {
+        return selectedMap;
+    }
+
+    public String getSelectedMapName() {
         return maps[selectedMap];
     }
 }

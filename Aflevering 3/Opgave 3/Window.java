@@ -19,7 +19,7 @@ public class Window {
         if (startSceneState.selectedOption == 0) {playerNumValue = "<" + playerNumValue + ">";}
         StdDraw.textLeft(50, 70, playerNumDescription + playerNumValue);
         String mapDescription = "Map:";
-        String mapValue = startSceneState.getSelectedMap();
+        String mapValue = startSceneState.getSelectedMapName();
         if (startSceneState.selectedOption == 1) {mapValue = "<" + mapValue + ">";}
         StdDraw.textLeft(50, 50, mapDescription + mapValue);
         StdDraw.show();

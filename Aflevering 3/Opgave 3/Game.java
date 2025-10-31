@@ -2,6 +2,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Game {
+    public static final GameMap[] gameMaps = {
+        new GameMap(20, 20, 10, 10),
+        new GameMap(18, 20, 12, 10)
+    };
     public static final Point[] directions = {
         new Point(-1, -1),  new Point(0, -1),  new Point(1, -1),
         new Point(-1, 0), new Point(0, 0), new Point(1, 0),
@@ -25,7 +29,7 @@ public class Game {
                     currentScene = Scene.RACE;
                     break;
                 case Scene.RACE:
-                    raceSceneState = new RaceSceneState(startSceneState.getSelectedPlayerNum());
+                    raceSceneState = new RaceSceneState(startSceneState.getSelectedPlayerNum(), gameMaps[startSceneState.getSelectedMap()]);
                     raceScene();
                     currentScene = Scene.GAMEOVER;
                     break;

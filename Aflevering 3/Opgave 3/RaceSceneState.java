@@ -6,7 +6,7 @@ public class RaceSceneState {
     Color[] playerColors = {StdDraw.RED, StdDraw.GREEN, StdDraw.BLUE, StdDraw.YELLOW};
     
 
-    public RaceSceneState(int playersNum) {
+    public RaceSceneState(int playersNum, GameMap gameMap) {
         this.players = new Player[playersNum];
         for (int i = 0; i < playersNum; i++) {
             this.players[i] = new Player(10, 16 + i, i, playerColors[i]);
