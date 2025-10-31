@@ -37,7 +37,7 @@ public class GameOfLifeMain {
 
 
     public static void updateWindow() {
-        StdDraw.show(0);
+        StdDraw.show(10);
         StdDraw.clear();
         drawState();
         StdDraw.show();

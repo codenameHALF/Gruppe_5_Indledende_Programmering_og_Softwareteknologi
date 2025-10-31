@@ -1,7 +1,7 @@
 public class StartSceneState {
     public static int options = 2;
     public static int[] playerNums = {1, 2, 3, 4};
-    public static String[] maps = {"default", "spicy"};
+    public static String[] maps = {"default", "wide", "tight"};
     public int selectedPlayerNum = 0;
     public int selectedMap = 0;
 

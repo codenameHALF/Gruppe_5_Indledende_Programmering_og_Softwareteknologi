@@ -29,7 +29,7 @@ public class Window {
     public void updateRaceScene(RaceSceneState raceSceneState) {
         StdDraw.show(20);
         StdDraw.clear();
-        drawBackground();
+        drawBackground(raceSceneState);
 
         for(int i = 0; i < raceSceneState.getPlayersNum(); i++) {
             ArrayList<Point> route = raceSceneState.getPlayerRoute(i);
@@ -72,13 +72,28 @@ public class Window {
     }
 
 
-    public void drawBackground() {
+    public void drawBackground(RaceSceneState raceSceneState) {
         StdDraw.setPenRadius(0.002);
         StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
+        int outWidth = raceSceneState.gameMap.outWidth;
+        int outHeight = raceSceneState.gameMap.outHeight;
+        int inWidth = raceSceneState.gameMap.inWidth;
+        int inHeight = raceSceneState.gameMap.inHeight;
+        int outLeftMargin = (20 - outWidth) / 2;
+        int outRightMargin = 20 - outLeftMargin;
+        int outBottomMargin = (20 - outHeight) / 2;
+        int outTopMargin = 20 - outBottomMargin;
+        int inLeftMargin = (20 - inWidth) / 2;
+        int inRightMargin = 20 - inLeftMargin;
+        int inBottomMargin = (20 - inHeight) / 2;
+        int inTopMargin = 20 - inBottomMargin;
+
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (i < 5 || i > 14 || j < 5 || j > 14) {
-                    StdDraw.filledSquare(i*20 + 10.5, j*20 + 9.5, 10);
+                if (i >= outLeftMargin && i < outRightMargin && j >= outBottomMargin && j < outTopMargin) {
+                    if (i < inLeftMargin || i >= inRightMargin || j < inBottomMargin || j >= inTopMargin) {
+                        StdDraw.filledSquare(i*20 + 10.5, j*20 + 9.5, 10);
+                    }
                 }
             }
         }
@@ -87,8 +102,10 @@ public class Window {
         StdDraw.setPenColor(StdDraw.BLACK);
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (i < 5 || i > 14 || j < 5 || j > 14) {
-                    StdDraw.square(i*20 + 10.5, j*20 + 9.5, 10);
+                if (i >= outLeftMargin && i < outRightMargin && j >= outBottomMargin && j < outTopMargin) {
+                    if (i < inLeftMargin || i >= inRightMargin || j < inBottomMargin || j >= inTopMargin) {
+                        StdDraw.square(i*20 + 10.5, j*20 + 9.5, 10);
+                    }
                 }
             }
         }
@@ -99,21 +116,19 @@ public class Window {
 
         StdDraw.setPenRadius(0.004);
         StdDraw.setPenColor(StdDraw.BLACK);
-        drawSymSquare(200);
+        drawLineSquare(outLeftMargin, outRightMargin, outBottomMargin, outTopMargin);
 
         StdDraw.setPenRadius(0.004);
         StdDraw.setPenColor(StdDraw.BLACK);
-        drawSymSquare(100);
+        drawLineSquare(inLeftMargin, inRightMargin, inBottomMargin, inTopMargin);
     }
 
 
-    public void drawSymSquare(int r) {
-        int a, b;
-        a = 200 - r;
-        b = 200 + r;
-        StdDraw.line(a, a, a, b);
-        StdDraw.line(a, b, b, b);
-        StdDraw.line(b, b, b, a);
-        StdDraw.line(b, a, a, a);
+    public void drawLineSquare(int a, int b, int c, int d) {
+        a *= 20; b *= 20; c *= 20; d *= 20;
+        StdDraw.line(a, d, b, d);
+        StdDraw.line(b, d, b, c);
+        StdDraw.line(b, c, a, c);
+        StdDraw.line(a, c, a, d);
     }
 }

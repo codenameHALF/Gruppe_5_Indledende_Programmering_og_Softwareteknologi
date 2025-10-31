@@ -4,6 +4,7 @@ import java.awt.event.*;
 public class Game {
     public static final GameMap[] gameMaps = {
         new GameMap(20, 20, 10, 10),
+        new GameMap(18, 20, 4, 10),
         new GameMap(18, 20, 12, 10)
     };
     public static final Point[] directions = {
