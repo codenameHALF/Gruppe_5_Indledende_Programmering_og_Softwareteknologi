@@ -26,4 +26,8 @@ public class Artikel extends Tidsskrift {
         return false;
     }
 
+    public String[] getReference(){
+        return this.referenceListe;
+    }
+
 }

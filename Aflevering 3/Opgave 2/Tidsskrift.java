@@ -26,7 +26,7 @@ public class Tidsskrift {
 
     public String toString() {
         if (issn == null){
-            return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag + ". ISSN-numrene kendes ikke.";
+            return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag.getNavn() + ". ISSN-numrene kendes ikke.";
         }
         return "Tidsskriftet " + titel + ". Dette tidsskrift kommer fra " + forlag +". " + issn;
     }
