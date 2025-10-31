@@ -12,6 +12,7 @@ public class PrimeFactors {
                 throw new IllegalArgumentException("Negative integer, Can't compute");
             }
             System.out.println("List of prime factors: " + getFactor(n));
+            System.out.println();
         }
         System.out.println("Terminating...");
     }
@@ -45,8 +46,8 @@ public class PrimeFactors {
         System.out.print("Enter integer greater than 1 (0 to terminate): ");
         while (!input.hasNextLong()) {
             input.next();
-            System.out.println(
-                    "The value you entered is either not an integer or it exceeds the max value of a long; try again.");
+            System.out.println("The value you entered is either not an integer or it exceeds the max value of a long; try again.");
+            System.out.println();
             System.out.print("Enter integer greater than 1 (0 to terminate): ");
         }
         return input.nextLong();
