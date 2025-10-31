@@ -1,6 +1,6 @@
 public class Artikel extends Tidsskrift {
     private String forfattere;
-    private String[] referenceliste;
+    private String[] referenceListe = new String[0];
     private Tidsskrift tidsskrift;
     private String titel;
 
@@ -14,8 +14,16 @@ public class Artikel extends Tidsskrift {
         return "- " + forfattere + ": " + "\"" + titel + "\"" + tidsskrift.getTitel(); 
     }
 
-    public void setReferenceliste() {
-  
+    public void setReferenceliste(String[] referenceListe) {
+        this.referenceListe = referenceListe;
+    }
+
+
+    public boolean hasReference(String sTitle) {
+        for (String title : this.referenceListe) {
+            if (title == sTitle) {return true;}
+        }
+        return false;
     }
 
 }

@@ -7,10 +7,10 @@ public class Forlag {
         this.sted = sted;
     }
 
-    public Forlag() {
-        this.navn = "";
-        this.sted = "";
-    }
+    //public Forlag() {
+    //    this.navn = "";
+    //    this.sted = "";
+    //}
 
     public String toString() {
         return "Forlaget " + navn + ", " + sted;

@@ -3,7 +3,7 @@ import java.util.*;
 
 
 public class GameOfLifeMain {
-    public static String golPath = "gol/acorn.gol";
+    public static String golPath = "Aflevering 3/Opgave 4/gol/acorn.gol";
     public static GameOfLife gameOfLife;
     
     public static void main(String[] args) {
