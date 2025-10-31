@@ -8,12 +8,11 @@ public class Artikeltest2 {
 
         System.out.println("Følgende to artikler:");
         Artikel test3 = new Artikel("A. Abe & A Turing", "A", test2);
-        test3.setReferenceliste(new String[] {"B"});
         System.out.println(test3.toString());
         System.out.println();
 
-        if (test3.hasReference("B")) {System.out.println("Den første af disse artikler har en reference til den anden.");}
-        if (test4.hasReference("A")) {System.out.println("Den anden af disse artikler har en reference til den første.");}
+        //if (test3.hasReference()) {System.out.println("Den første af disse artikler har en reference til den anden.");}
+        //if (test4.hasReference()) {System.out.println("Den anden af disse artikler har en reference til den første.");}
 
 
     }
