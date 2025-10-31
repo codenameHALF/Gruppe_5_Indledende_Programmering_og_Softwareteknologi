@@ -1,8 +1,8 @@
 public class GameOfLifeMain {
-    public String golPath = "gol/acorn.gol";
+    public static String golPath = "gol/acorn.gol";
     
     public static void main(String[] args) {
-        GameOfLife game = new GameOfLife(2);
+        GameOfLife game = new GameOfLife(golPath);
         // game.writeState(read_file(golPath));
     }
 

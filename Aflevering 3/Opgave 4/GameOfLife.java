@@ -31,22 +31,19 @@ public class GameOfLife {
 
     //public int[][] golToState(String golData) {
        // state = new int[n][n];
-
-            }
-        }
        // return state;
-    }
+    //}
 
     //public int[][] getState() {
       //  return this.state;
-    }
+    //}
 
    // public void nextGen() {
         // rydder (men vi har ingen main)
        // for(int i = 0; i < n; i++) {
          //   for(int j = 0; j < n; j++) {
            //     state[i][j] = 0;
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 }
