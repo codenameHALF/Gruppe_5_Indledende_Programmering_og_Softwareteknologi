@@ -29,7 +29,6 @@ public class GameOfLife {
     }
 
     public void nextGen() {
-        // rydder (men vi har ingen main)
         int[][] newState = new int[this.xSize][this.ySize];
         for (int i = 0; i < this.xSize; i++) {
             for (int j = 0; j < this.ySize; j++) {
