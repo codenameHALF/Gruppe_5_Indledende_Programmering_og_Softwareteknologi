@@ -3,13 +3,14 @@ import java.util.*;
 
 
 public class GameOfLifeMain {
-    public static String golPath = "Aflevering 3/Opgave 4/gol/acorn.gol";
+    public static String golPath = "Aflevering 3/Opgave 4/gol/glider_gun.gol";
     public static GameOfLife gameOfLife;
     
+
     public static void main(String[] args) {
+        // Read data from .gol file specified by golPath
         ArrayList<String> golData = new ArrayList<>();
         try {
-            // Read data from file path
             Scanner scanner = new Scanner(new File(golPath));
             while (scanner.hasNextLine()) {golData.add(scanner.nextLine().replaceAll(" ", ""));}
             scanner.close();
@@ -18,24 +19,23 @@ public class GameOfLifeMain {
             System.exit(0);
         }
 
+        // Add a new gameOfLife object and insert the .gol data
         gameOfLife = new GameOfLife(golData);
         System.out.println(gameOfLife.getState());
 
+        // Setup StdDraw window
         StdDraw.setXscale(0, gameOfLife.xSize);
         StdDraw.setYscale(0, gameOfLife.ySize);
         updateWindow();
+        
+        // Main infinite loop for the simulation
         while(true) {
-            try {
-                gameOfLife.nextGen();
-                updateWindow();
-            } catch (Exception e) {
-                System.out.println(e);
-                System.exit(0);
-            }
+            gameOfLife.nextGen();
+            updateWindow();
         }
     }
 
-
+    // Clear the screen and display the game state
     public static void updateWindow() {
         StdDraw.show(10);
         StdDraw.clear();
@@ -43,13 +43,14 @@ public class GameOfLifeMain {
         StdDraw.show();
     }
 
+    // Display the game state
     public static void drawState() {
-        //StdDraw.setPenRadius(1.0/Math.min(gameOfLife.xSize, gameOfLife.ySize));
         StdDraw.setPenColor(StdDraw.BLACK);
+
+        // Go though
         for (int i = 0; i < gameOfLife.xSize; i++) {
             for (int j = 0; j < gameOfLife.ySize; j++) {
                 if (gameOfLife.state[i][j] == 1) {
-                    //StdDraw.point(j+0.5, gameOfLife.ySize-i-1.5);
                     StdDraw.filledSquare(j+0.5, gameOfLife.ySize-i-0.5, 0.51);
                 }
             }
