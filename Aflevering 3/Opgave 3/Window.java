@@ -1,13 +1,15 @@
 import java.util.*;
 import java.awt.*;
 
+// Class for managing and storing the StdDraw window
 public class Window {
+    // Set up window
     public Window(int xScale, int yScale) {
         StdDraw.setXscale(1,xScale);
         StdDraw.setYscale(1,yScale);
     }
 
-
+    // Clear window and draw startScene UI
     public void updateStartScene(StartSceneState startSceneState) {
         StdDraw.show(20);
         StdDraw.clear();
@@ -25,12 +27,13 @@ public class Window {
         StdDraw.show();
     }
 
-
+    // Clear window and draw raceScene UI
     public void updateRaceScene(RaceSceneState raceSceneState) {
         StdDraw.show(20);
         StdDraw.clear();
         drawBackground(raceSceneState);
 
+        // Draw lines from each point in each player's route
         for(int i = 0; i < raceSceneState.getPlayersNum(); i++) {
             ArrayList<Point> route = raceSceneState.getPlayerRoute(i);
             Color color = raceSceneState.getPlayerColor(i);
@@ -38,6 +41,7 @@ public class Window {
                 drawLine(route.get(j), route.get(j+1), color);
             }
         }
+        // Draw all points in each player's route
         for(int i = 0; i < raceSceneState.getPlayersNum(); i++) {
             ArrayList<Point> route = raceSceneState.getPlayerRoute(i);
             for (Point pos : route) {
@@ -48,7 +52,7 @@ public class Window {
         StdDraw.show();
     }
 
-
+    // Clear window and draw gameoverScene UI
     public void updateGameoverScene() {
         StdDraw.show(20);
         StdDraw.clear();
@@ -57,24 +61,23 @@ public class Window {
         StdDraw.show();
     }
 
-
+    // Draw a point with standard settings and corrected for window size
     public void drawPoint(Point p) {
         StdDraw.setPenRadius(0.016);
         StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.point(p.x * 20, p.y * 20);
     }
 
-    
+    // Draw a line with standard settings and corrected for window size
     public void drawLine(Point pos1, Point pos2, Color color) {
         StdDraw.setPenRadius(0.008);
         StdDraw.setPenColor(color);
         StdDraw.line(pos1.x * 20, pos1.y * 20, pos2.x * 20, pos2.y * 20);
     }
 
-
+    // Draw the entire background specified by the map in the scene state
     public void drawBackground(RaceSceneState raceSceneState) {
-        StdDraw.setPenRadius(0.002);
-        StdDraw.setPenColor(StdDraw.LIGHT_GRAY);
+        // Calculate measurements
         int outWidth = raceSceneState.gameMap.outWidth;
         int outHeight = raceSceneState.gameMap.outHeight;
         int inWidth = raceSceneState.gameMap.inWidth;
@@ -88,6 +91,9 @@ public class Window {
         int inBottomMargin = (20 - inHeight) / 2;
         int inTopMargin = 20 - inBottomMargin;
 
+        // Draw filled squares corresponding to map dimensions
+        StdDraw.setPenRadius(0.002);
+        StdDraw.setPenColor(raceSceneState.gameMap.tileColor);
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (i >= outLeftMargin && i < outRightMargin && j >= outBottomMargin && j < outTopMargin) {
@@ -98,8 +104,9 @@ public class Window {
             }
         }
 
+        // Draw squares corresponding to map dimensions
         StdDraw.setPenRadius(0.002);
-        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.setPenColor(raceSceneState.gameMap.edgeColor);
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 if (i >= outLeftMargin && i < outRightMargin && j >= outBottomMargin && j < outTopMargin) {
@@ -110,20 +117,23 @@ public class Window {
             }
         }
         
+        // Draw start line
         StdDraw.setPenColor(StdDraw.GREEN);
         StdDraw.setPenRadius(0.008);
         StdDraw.line(200, 400, 200, 300);
 
+        // Draw outer border
         StdDraw.setPenRadius(0.004);
-        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.setPenColor(raceSceneState.gameMap.edgeColor);
         drawLineSquare(outLeftMargin, outRightMargin, outBottomMargin, outTopMargin);
 
+        // Draw inner border
         StdDraw.setPenRadius(0.004);
-        StdDraw.setPenColor(StdDraw.BLACK);
+        StdDraw.setPenColor(raceSceneState.gameMap.edgeColor);
         drawLineSquare(inLeftMargin, inRightMargin, inBottomMargin, inTopMargin);
     }
 
-
+    // Draw a square of lines inside four margins
     public void drawLineSquare(int a, int b, int c, int d) {
         a *= 20; b *= 20; c *= 20; d *= 20;
         StdDraw.line(a, d, b, d);

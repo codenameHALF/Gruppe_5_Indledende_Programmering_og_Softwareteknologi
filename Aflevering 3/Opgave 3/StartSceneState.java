@@ -1,25 +1,25 @@
+// Class for storing and updating the state of the start scene
 public class StartSceneState {
     public static int options = 2;
     public static int[] playerNums = {1, 2, 3, 4};
-    public static String[] maps = {"default", "wide", "tight"};
+    public static String[] maps = {"default", "wide", "tight", "extreme"};
     public int selectedPlayerNum = 0;
     public int selectedMap = 0;
-
     public int selectedOption = 0;
 
-
+    // Scroll vertical selection up
     public void up() {
         selectedOption += 1;
         if (selectedOption >= options) {selectedOption = 0;}
     }
 
-
+    // Scroll vertical selection down
     public void down() {
         selectedOption -= 1;
         if (selectedOption < 0) {selectedOption = options - 1;}
     }
 
-
+    // Scroll horizontal selection right
     public void right() {
         switch (selectedOption) {
             case 0:
@@ -33,7 +33,7 @@ public class StartSceneState {
         }
     }
 
-
+    // Scroll horizontal selection left
     public void left() {
         switch (selectedOption) {
             case 0:
@@ -47,14 +47,17 @@ public class StartSceneState {
         }
     }
 
+    // Getter for playerNum
     public int getSelectedPlayerNum() {
         return playerNums[selectedPlayerNum];
     }
 
+    // Getter for selectedMap
     public int getSelectedMap() {
         return selectedMap;
     }
 
+    // Getter for name of selected map
     public String getSelectedMapName() {
         return maps[selectedMap];
     }

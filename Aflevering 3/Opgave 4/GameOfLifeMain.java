@@ -3,12 +3,13 @@ import java.util.*;
 
 
 public class GameOfLifeMain {
-    public static String golPath = "Aflevering 3/Opgave 4/gol/glider_gun.gol";
+    public static String golPath = "Aflevering 3/Opgave 4/gol/acorn.gol";
     public static GameOfLife gameOfLife;
     
 
     public static void main(String[] args) {
         // Read data from .gol file specified by golPath
+        // Store data in golData array
         ArrayList<String> golData = new ArrayList<>();
         try {
             Scanner scanner = new Scanner(new File(golPath));
@@ -24,8 +25,8 @@ public class GameOfLifeMain {
         System.out.println(gameOfLife.getState());
 
         // Setup StdDraw window
-        StdDraw.setXscale(0, gameOfLife.xSize);
-        StdDraw.setYscale(0, gameOfLife.ySize);
+        StdDraw.setXscale(0, gameOfLife.getXSize());
+        StdDraw.setYscale(0, gameOfLife.getYSize());
         updateWindow();
         
         // Main infinite loop for the simulation
@@ -43,25 +44,25 @@ public class GameOfLifeMain {
         StdDraw.show();
     }
 
-    // Display the game state
+    // Draw the current state by drawing black squares where state[i][j] = 1
     public static void drawState() {
         StdDraw.setPenColor(StdDraw.BLACK);
 
-        // Go though
-        for (int i = 0; i < gameOfLife.xSize; i++) {
-            for (int j = 0; j < gameOfLife.ySize; j++) {
-                if (gameOfLife.state[i][j] == 1) {
-                    StdDraw.filledSquare(j+0.5, gameOfLife.ySize-i-0.5, 0.51);
+        for (int i = 0; i < gameOfLife.getXSize(); i++) {
+            for (int j = 0; j < gameOfLife.getYSize(); j++) {
+                if (gameOfLife.getState()[i][j] == 1) {
+                    StdDraw.filledSquare(j+0.5, gameOfLife.getYSize()-i-0.5, 0.51);
                 }
             }
         }
     }
 
+    // Print the current state in the terminal
     public static void printState() {
-        for (int i = 0; i < gameOfLife.xSize; i++) {
+        for (int i = 0; i < gameOfLife.getXSize(); i++) {
             String line = "";
-            for (int j = 0; j < gameOfLife.ySize; j++) {
-                if (gameOfLife.state[i][j] == 1) {
+            for (int j = 0; j < gameOfLife.getYSize(); j++) {
+                if (gameOfLife.getState()[i][j] == 1) {
                     line += "1";
                 } else {
                     line += "0";
