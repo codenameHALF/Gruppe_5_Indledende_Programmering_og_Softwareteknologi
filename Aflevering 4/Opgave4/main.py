@@ -6,6 +6,13 @@
 # The function show(a) takes a list of lists as printed in main.txt
 # where the initial string with cells alive are placed from index 0
 
+def play(s, n):
+    
+        
+        
+def show(a):
+    
+
 def main():
     print("Welcome to One-Dimensional Game of Life")
     print()
