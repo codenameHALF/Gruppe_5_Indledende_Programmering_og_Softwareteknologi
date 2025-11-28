@@ -8,8 +8,8 @@ public class Mandelbrot {
     
     public static int MAX = 255;
     public static int GRIDRES = 512;
-    public static Complex c = new Complex(-0.5, 0.0);
-    public static double s = 2.0;
+    public static Complex c = new Complex(0.10259, -0.604);
+    public static double s = 0.0086;
     public static Color[] palette;
     public static String palettePath = "mnd/blues.mnd";
 
