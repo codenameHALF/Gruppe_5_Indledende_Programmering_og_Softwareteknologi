@@ -1,3 +1,5 @@
+
+// Object for storing and calculating with complex numbers
 public class Complex {
 
     private double re;
